@@ -11,7 +11,9 @@ import jakarta.inject.Singleton
 @Singleton
 @Requires(classes = [Exception::class, ExceptionHandler::class])
 class ExceptionHandler :
+
     ExceptionHandler<Exception?, HttpResponse<*>> {
+
     override fun handle(request: HttpRequest<*>?, exception: Exception?): HttpResponse<*> {
         println(exception?.message)
         return HttpResponse.ok(0)

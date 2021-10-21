@@ -4,6 +4,6 @@ data class Message(
     var message_id: String?,
     var from: User?,
     var date: Int?,
-    var chat: Chat?,
-    var text: String?,
+    var chat: Chat,
+    var text: String,
 )

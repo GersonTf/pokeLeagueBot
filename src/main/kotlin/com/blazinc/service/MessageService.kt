@@ -5,7 +5,7 @@ import io.micronaut.http.client.annotation.Client
 import jakarta.inject.Singleton
 
 @Singleton
-class MessageService(@param:Client("https://api.telegram.org/bot848542380:AAEjlY6qaxA0eEFUXoOFDHwAVMI4-91kW28") private val httpClient: HttpClient) {
+class MessageService(@param:Client("https://api.telegram.org/bot496020190:AAHv_q7IUeqDMCVW0UuIIq3t4uh1tok8FK8") private val httpClient: HttpClient) {
 
     /**
      * It sends a message to a specific telegram chatId

@@ -3,7 +3,7 @@ services:
     image: okteto.dev/api
     build:
       context: .
-      dockerfile: DockerApp
+      dockerfile: .
     ports:
       - 8080
 

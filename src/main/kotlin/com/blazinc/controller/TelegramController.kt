@@ -11,7 +11,6 @@ class TelegramController(val telegramHandler: TelegramHandler) {
     @Get("/")
     @Produces(MediaType.TEXT_PLAIN)
     fun index(): String {
-        println("I am alive!!")
         return "I am alive!!"
     }
 
@@ -22,7 +21,6 @@ class TelegramController(val telegramHandler: TelegramHandler) {
     @Produces(MediaType.APPLICATION_JSON)
     @Post("/webhook")
     fun webhook(@Body update: Update) {
-        println("message received")
         telegramHandler.messageReceiver(update)
     }
 }

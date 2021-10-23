@@ -3,8 +3,7 @@ package com.blazinc.service
 import com.blazinc.model.domain.Update
 import jakarta.inject.Singleton
 import lombok.extern.java.Log
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import mu.KotlinLogging
 
 import javax.validation.ValidationException
 
@@ -12,11 +11,12 @@ import javax.validation.ValidationException
 @Singleton
 class TelegramHandler(val messageService: MessageService) {
 
-    fun getLogger(): Logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME)
+    private val logger = KotlinLogging.logger {}
 
     fun messageReceiver(params: Update) {
+        logger.info(params.toString())
         val message: String = params.message.text.drop(1)
-        getLogger().info("message received $message")
+        logger.info("message received $message")
         routeMessage(message, params)
     }
 

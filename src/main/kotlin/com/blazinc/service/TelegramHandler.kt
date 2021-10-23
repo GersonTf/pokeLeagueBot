@@ -14,7 +14,6 @@ class TelegramHandler(val messageService: MessageService) {
     private val logger = KotlinLogging.logger {}
 
     fun messageReceiver(params: Update) {
-        logger.info(params.toString())
         val message: String = params.message.text.drop(1)
         logger.info("message received $message")
         routeMessage(message, params)
@@ -32,7 +31,6 @@ class TelegramHandler(val messageService: MessageService) {
 
 
     fun start(params: Update) {
-        logger.info("start process started")
         val chatID = params.message.chat.id
         messageService.sendNotificationToTelegram("HelloWorld", chatID)
     }

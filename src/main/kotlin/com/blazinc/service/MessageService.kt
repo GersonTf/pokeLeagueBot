@@ -1,5 +1,6 @@
 package com.blazinc.service
 
+import io.micronaut.http.HttpRequest
 import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.annotation.Client
 import jakarta.inject.Singleton
@@ -17,6 +18,6 @@ class MessageService(@param:Client private val httpClient: HttpClient) {
     fun sendNotificationToTelegram(message: String, chatId: String) {
         val uri = "https://api.telegram.org/bot496020190:AAHv_q7IUeqDMCVW0UuIIq3t4uh1tok8FK8/sendMessage?text=$message&chat_id=$chatId"
         logger.info(uri)
-        httpClient.exchange(uri)
+        val req: HttpRequest<*> = HttpRequest.GET<Any>(uri)
     }
 }

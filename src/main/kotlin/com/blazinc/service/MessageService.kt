@@ -7,7 +7,7 @@ import jakarta.inject.Singleton
 import mu.KotlinLogging
 
 @Singleton
-class MessageService(@param:Client private val httpClient: HttpClient) {
+class MessageService(@param:Client("https://api.telegram.org/bot496020190:AAHv_q7IUeqDMCVW0UuIIq3t4uh1tok8FK8") private val httpClient: HttpClient) {
 
     private val logger = KotlinLogging.logger {}
 
@@ -16,8 +16,6 @@ class MessageService(@param:Client private val httpClient: HttpClient) {
      * @param message to send and chatId
      */
     fun sendNotificationToTelegram(message: String, chatId: String) {
-        val uri = "https://api.telegram.org/bot496020190:AAHv_q7IUeqDMCVW0UuIIq3t4uh1tok8FK8/sendMessage?text=$message&chat_id=$chatId"
-        logger.info(uri)
-        val req: HttpRequest<*> = HttpRequest.GET<Any>(uri)
+        httpClient.exchange(HttpRequest.GET<Any>( "/sendMessage?text=$message&chat_id=$chatId"))
     }
 }

@@ -32,6 +32,7 @@ class TelegramHandler(val messageService: MessageService) {
 
 
     fun start(params: Update) {
+        logger.info("start process started")
         val chatID = params.message.chat.id
         messageService.sendNotificationToTelegram("HelloWorld", chatID)
     }

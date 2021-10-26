@@ -18,7 +18,6 @@ class MessageService(@param:Client(TelegramConfiguration.TELEGRAM_API_URL) priva
      */
     fun sendNotificationToTelegram(message: String, chatId: String) {
         val uri = "/$botToken/sendMessage?text=$message&chat_id=$chatId"
-        println(uri)
         httpClient.toBlocking().retrieve(uri)
     }
 }

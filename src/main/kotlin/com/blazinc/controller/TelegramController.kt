@@ -21,6 +21,7 @@ class TelegramController(val telegramHandler: TelegramHandler) {
     @Produces(MediaType.APPLICATION_JSON)
     @Post("/webhook")
     fun webhook(@Body update: Update) {
+        println(update.toString())
         telegramHandler.messageReceiver(update)
     }
 }

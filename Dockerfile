@@ -7,5 +7,6 @@ WORKDIR /home/app
 COPY --from=build /home/gradle/build/docker/layers/libs /home/app/libs
 COPY --from=build /home/gradle/build/docker/layers/resources /home/app/resources
 COPY --from=build /home/gradle/build/docker/layers/application.jar /home/app/application.jar
+ENV TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/home/app/application.jar"]

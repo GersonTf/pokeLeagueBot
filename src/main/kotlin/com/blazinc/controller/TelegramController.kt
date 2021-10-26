@@ -20,8 +20,8 @@ class TelegramController(val telegramHandler: TelegramHandler) {
      **/
     @Produces(MediaType.APPLICATION_JSON)
     @Post("/webhook")
-    fun webhook(@Body update: Update) {
+    fun webhook(@Body update: Map<String, String>) {
         println(update.toString())
-        telegramHandler.messageReceiver(update)
+       // telegramHandler.messageReceiver(update)
     }
 }

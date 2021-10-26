@@ -11,7 +11,7 @@ class TelegramController(val telegramHandler: TelegramHandler) {
     @Get("/")
     @Produces(MediaType.TEXT_PLAIN)
     fun index(): String {
-        return System.getenv("TELEGRAM_TOKEN")
+        return "It's alive!!!"
     }
 
     /**

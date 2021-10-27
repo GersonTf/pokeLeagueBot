@@ -32,7 +32,7 @@ class TelegramHandler(val messageService: MessageService) {
 
     fun start(params: Update) {
         val chatID = params.message.chat.id
-        messageService.sendNotificationToTelegram("HelloWorld", chatID)
+        messageService.sendNotificationToTelegram("Hello World", chatID)
     }
 
     fun help(params: Update) {

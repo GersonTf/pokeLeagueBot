@@ -14,7 +14,7 @@ class TelegramHandler(val messageService: MessageService) {
     private val logger = KotlinLogging.logger {}
 
     fun messageReceiver(params: Update) {
-        val message: String = params.message.text.drop(1)
+        val message: String = params.message.text.drop(1).substringBefore("@")
         logger.info("message received $message")
         routeMessage(message, params)
     }
